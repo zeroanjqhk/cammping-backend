@@ -14,7 +14,8 @@ public class Scheduler {
     private final GoCampingSyncService goCampingSyncService;
 
     // 매 1분마다
-    @Scheduled(fixedRate = 60_000)
+    //@Scheduled(fixedRate = 60_000)
+    @Scheduled(cron = "0 0/30 * * * *")
     public void goCampingBasedSync() {
         log.info("[GoCampingBasedSyncJob] started");
         goCampingSyncService.sync();

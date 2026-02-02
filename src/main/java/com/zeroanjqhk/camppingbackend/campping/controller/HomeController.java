@@ -19,9 +19,9 @@ public class HomeController {
         this.homeService = homeService;
     }
 
-    @PostMapping("/camppingList")
-    public CommonResponse<Object> selectCmppingList() {
-        return  homeService.selectCmppingList();
+    @PostMapping("/selectCamppingList")
+    public CommonResponse<Object> selectCamppingList() {
+        return  homeService.selectCamppingList();
     }
 
 }

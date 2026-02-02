@@ -6,18 +6,20 @@ import com.zeroanjqhk.camppingbackend.common.response.CommonResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
-public class HomeService {
+public class MapService {
 
-    private TbCampListRepository tbCampListRepository;
+    private final TbCampListRepository tbCampListRepository;
 
-    public HomeService(TbCampListRepository tbCampListRepository){
-        this.tbCampListRepository =tbCampListRepository;
+    public MapService(TbCampListRepository tbCampListRepository) {
+        this.tbCampListRepository = tbCampListRepository;
     }
 
-    public CommonResponse<Object> selectCamppingList(){
+    public CommonResponse<Object> selectMapList(){
+
+        tbCampListRepository.selectMapList(1,2);
+
         List<TbCampListEntity> tbCampListEntity = tbCampListRepository.selectCamppingList();
         return CommonResponse.success("11","as", tbCampListEntity);
     }

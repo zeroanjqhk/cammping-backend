@@ -8,7 +8,12 @@ import java.util.List;
 
 public interface TbCampListDsl {
 
+    /* home */
     List<TbCampListEntity> selectCmppingList();
+
+
+    /* map */
+    List<TbCampListEntity> selectMapList(double lng, double lat);
 
 
 }

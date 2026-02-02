@@ -1,5 +1,6 @@
 package com.zeroanjqhk.camppingbackend.campping.repository;
 
+import com.zeroanjqhk.camppingbackend.campping.dsl.TbCampListDsl;
 import com.zeroanjqhk.camppingbackend.campping.entity.TbCampListEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface TbCampListRepository extends JpaRepository<TbCampListEntity, Integer> {
+public interface TbCampListRepository extends JpaRepository<TbCampListEntity, Integer>, TbCampListDsl {
 
     @Query(value = """
         SELECT *
@@ -18,6 +19,7 @@ public interface TbCampListRepository extends JpaRepository<TbCampListEntity, In
         ) a
         WHERE a.rn <= 2
         """, nativeQuery = true)
-    List<TbCampListEntity> selectCmppingList();
+    List<TbCampListEntity> selectCamppingList();
 
+    List<TbCampListEntity> selectMapList(double lng, double lat);
 }
